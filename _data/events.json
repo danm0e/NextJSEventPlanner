@@ -18,7 +18,7 @@
       "description": "Some description",
       "image": "https://source.unsplash.com/random/600x300?sig=2",
       "location": "some event location 2",
-      "status": "accepted",
+      "status": "Accepted",
       "created": {
         "date": "some-date-string-2",
         "name": "Some user name 2",
@@ -31,7 +31,7 @@
       "description": "Some description",
       "image": "https://source.unsplash.com/random/600x300?sig=3",
       "location": "some event location 3",
-      "status": "declined",
+      "status": "Declined",
       "created": {
         "date": "some-date-string-3",
         "name": "Some user name 3",
@@ -56,7 +56,7 @@
       "description": "Some description",
       "image": "https://source.unsplash.com/random/600x300?sig=5",
       "location": "some event location 5",
-      "status": "accepted",
+      "status": "Accepted",
       "created": {
         "date": "some-date-string-5",
         "name": "Some user name 5",
@@ -69,7 +69,7 @@
       "description": "Some description",
       "image": "https://source.unsplash.com/random/600x300?sig=6",
       "location": "some event location 6",
-      "status": "declined",
+      "status": "Declined",
       "created": {
         "date": "some-date-string-6",
         "name": "Some user name 6",

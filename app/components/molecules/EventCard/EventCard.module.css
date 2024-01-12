@@ -11,7 +11,7 @@
 }
 
 .eventCardBody {
-  @apply p-5 flex justify-start;
+  @apply p-5 flex justify-start items-center;
 }
 
 .eventCardTitle {
@@ -20,4 +20,8 @@
 
 .eventCardNumber {
   @apply text-slate-400 font-bold text-3xl pr-3;
+}
+
+.eventCardStatus {
+  @apply flex justify-center items-center px-2 h-fit ml-auto rounded-md border border-slate-400;
 }
