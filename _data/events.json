@@ -2,8 +2,8 @@
   "events": [
     {
       "id": "1",
-      "title": "Some title 1",
-      "description": "Some description",
+      "title": "Some title 1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, totam error quas porro nisi iusto tempora.",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, totam error quas porro nisi iusto tempora, delectus modi veritatis impedit quasi itaque sapiente inventore quis fuga iste vel consequuntur voluptas.",
       "image": "https://source.unsplash.com/random/600x300?sig=1",
       "location": "some event location 1",
       "created": {
@@ -14,7 +14,7 @@
     },
     {
       "id": "2",
-      "title": "Some title 2",
+      "title": "Some title 2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, totam error quas porro nisi iusto tempora.",
       "description": "Some description",
       "image": "https://source.unsplash.com/random/600x300?sig=2",
       "location": "some event location 2",

@@ -2,7 +2,9 @@ import { EventsList } from "@/components/organisms";
 import { Event } from "@/models";
 
 const getEvents = async () => {
-  const events = await fetch("http://localhost:4000/events");
+  const events = await fetch("http://localhost:4000/events", {
+    next: { revalidate: 0 },
+  });
   return events.json();
 };
 

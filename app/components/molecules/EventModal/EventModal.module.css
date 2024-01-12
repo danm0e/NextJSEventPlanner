@@ -15,7 +15,7 @@
 }
 
 .eventModalTitle {
-  @apply flex items-center;
+  @apply text-left leading-tight pr-3;
 }
 
 .eventModalContent {
