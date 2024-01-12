@@ -1,0 +1,23 @@
+.eventCardButton {
+  @apply rounded-lg overflow-hidden bg-white dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-900 transition ease-in-out;
+}
+
+.eventCard {
+  @apply rounded-lg overflow-hidden;
+}
+
+.eventCardImage {
+  @apply rounded-t-lg pointer-events-none;
+}
+
+.eventCardBody {
+  @apply p-5 flex justify-start;
+}
+
+.eventCardTitle {
+  @apply flex items-center;
+}
+
+.eventCardNumber {
+  @apply text-slate-400 font-bold text-3xl pr-3;
+}

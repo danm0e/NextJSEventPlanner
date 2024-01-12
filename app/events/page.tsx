@@ -1,3 +1,10 @@
-const Events = () => <div>Events</div>
+import { EventsList } from "@/components/organisms";
 
-export default Events
+const Events = () => (
+  <section>
+    <h2>Events</h2>
+    <EventsList />
+  </section>
+);
+
+export default Events;

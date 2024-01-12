@@ -1,0 +1,7 @@
+.header {
+  @apply container mx-auto py-10;
+}
+
+.headerLink {
+  @apply inline-block;
+}

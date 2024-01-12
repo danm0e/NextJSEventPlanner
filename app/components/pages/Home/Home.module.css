@@ -1,0 +1,15 @@
+.home {
+  @apply flex flex-col justify-center text-center max-w-screen-lg mx-auto;
+}
+
+.homeTitle {
+  @apply text-5xl md:text-6xl text-slate-400 font-semibold pb-8;
+}
+
+.homeText {
+  @apply dark:text-slate-100 mb-8;
+}
+
+.homeLink {
+  @apply inline-flex justify-center rounded-lg text-sm font-semibold py-2.5 px-4 bg-slate-900 text-white hover:bg-slate-700;
+}
