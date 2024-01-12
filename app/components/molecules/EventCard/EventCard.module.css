@@ -1,5 +1,5 @@
 .eventCardButton {
-  @apply rounded-lg overflow-hidden bg-white dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-900 transition ease-in-out;
+  @apply rounded-lg overflow-hidden bg-white dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-900 transition ease-in-out outline-none;
 }
 
 .eventCard {

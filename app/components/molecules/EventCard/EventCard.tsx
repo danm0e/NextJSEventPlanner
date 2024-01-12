@@ -4,12 +4,15 @@ import styles from "./EventCard.module.css";
 
 interface EventCardProps {
   event: Event;
+  onClick: (event: Event) => void;
 }
 
 export const EventCard = ({
+  event,
   event: { id, image, title, status },
+  onClick,
 }: EventCardProps) => (
-  <button className={styles.eventCardButton} key={id}>
+  <button className={styles.eventCardButton} onClick={() => onClick(event)}>
     <article className={styles.eventCard}>
       <Image
         src={image}
@@ -17,6 +20,7 @@ export const EventCard = ({
         height="300"
         alt={title}
         className={styles.eventCardImage}
+        priority
       />
 
       <div className={styles.eventCardBody}>

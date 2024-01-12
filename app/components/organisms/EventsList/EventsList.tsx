@@ -1,20 +1,39 @@
+"use client";
+
+import { useState } from "react";
 import { Event } from "@/models";
-import { EventCard } from "@/components/molecules";
+import { EventCard, Modal } from "@/components/molecules";
 import styles from "./EventsList.module.css";
 
-const getEvents = async () => {
-  const events = await fetch("http://localhost:4000/events");
-  return events.json();
-};
+interface EventsListProps {
+  events: Event[];
+}
 
-export const EventsList = async () => {
-  const events: Event[] = await getEvents();
+export const EventsList = ({ events }: EventsListProps) => {
+  const [showModal, setShowModal] = useState(false);
+  const [currentEvent, setCurrentEvent] = useState<Event | undefined>();
+
+  const handleOnClose = () => {
+    setShowModal(false);
+    setCurrentEvent(undefined);
+  };
+
+  const handleOnClick = (event: Event) => {
+    setCurrentEvent(event);
+    setShowModal(true);
+  };
+
+  const shouldShowModal = (currentEvent && showModal) || false;
 
   return (
     <div className={styles.eventCardGrid}>
       {events.map((event: Event) => (
-        <EventCard event={event} key={event.id} />
+        <EventCard event={event} onClick={handleOnClick} key={event.id} />
       ))}
+
+      <Modal isVisible={shouldShowModal} onClose={handleOnClose}>
+        {currentEvent?.title}
+      </Modal>
     </div>
   );
 };

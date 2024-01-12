@@ -7,7 +7,21 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        scaleUp: {
+          "0%": {
+            transform: "scale(0%)",
+          },
+          "100%": {
+            transform: "scale(100%)",
+          },
+        },
+      },
+      animation: {
+        scaleUp: "scaleUp 0.5s cubic-bezier(0.42, 0, 0.37, 1.66) forwards",
+      },
+    },
   },
   plugins: [],
 };
