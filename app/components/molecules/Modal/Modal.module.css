@@ -3,5 +3,5 @@
 }
 
 .modalDialog {
-  @apply flex justify-center items-center bg-slate-900 dark:bg-slate-200 min-h-full min-w-full sm:min-h-96 sm:min-w-96  sm:rounded-xl animate-scaleUp;
+  @apply bg-white dark:bg-slate-700 min-h-full min-w-full sm:min-h-96 sm:min-w-96 sm:rounded-xl animate-scaleUp;
 }

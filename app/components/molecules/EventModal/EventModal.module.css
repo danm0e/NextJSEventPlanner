@@ -1,0 +1,27 @@
+.eventModal {
+  @apply rounded-lg overflow-hidden flex flex-col;
+}
+
+.eventModalImage {
+  @apply rounded-t-lg pointer-events-none;
+}
+
+.eventModalBody {
+  @apply p-5 flex flex-col justify-start items-center;
+}
+
+.eventModalHeader {
+  @apply flex flex-row w-full;
+}
+
+.eventModalTitle {
+  @apply flex items-center;
+}
+
+.eventModalContent {
+  @apply w-full pt-5;
+}
+
+.eventModalStatus {
+  @apply flex justify-center items-center px-2 h-fit ml-auto rounded-md border border-slate-400;
+}

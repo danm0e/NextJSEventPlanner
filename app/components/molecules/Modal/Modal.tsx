@@ -21,10 +21,6 @@ export const Modal = ({ isVisible, onClose, children }: ModalProp) => {
     };
   }, []);
 
-  if (!isVisible) {
-    return null;
-  }
-
   return (
     <div className={styles.modalOverlay} onClick={onClose}>
       <div className={styles.modalDialog}>{children}</div>

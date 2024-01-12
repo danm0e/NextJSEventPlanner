@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Event } from "@/models";
-import { EventCard, Modal } from "@/components/molecules";
+import { EventCard, Modal, EventModal } from "@/components/molecules";
 import styles from "./EventsList.module.css";
 
 interface EventsListProps {
@@ -31,9 +31,11 @@ export const EventsList = ({ events }: EventsListProps) => {
         <EventCard event={event} onClick={handleOnClick} key={event.id} />
       ))}
 
-      <Modal isVisible={shouldShowModal} onClose={handleOnClose}>
-        {currentEvent?.title}
-      </Modal>
+      {!!currentEvent && (
+        <Modal isVisible={shouldShowModal} onClose={handleOnClose}>
+          <EventModal event={currentEvent} />
+        </Modal>
+      )}
     </div>
   );
 };
