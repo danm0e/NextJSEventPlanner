@@ -25,3 +25,15 @@
 .eventModalStatus {
   @apply flex justify-center items-center px-2 h-fit ml-auto rounded-md border border-slate-400;
 }
+
+.eventModalDetails {
+  @apply text-xs mt-3 p-3 rounded-md bg-slate-200 dark:bg-slate-800;
+}
+
+.eventModalDetailItem {
+  @apply flex py-1;
+}
+
+.eventModalIcon {
+  @apply h-4 w-4 mr-3 text-slate-700 dark:text-slate-400;
+}

@@ -1,6 +1,12 @@
 import { Event } from "@/models";
 import Image from "next/image";
 import styles from "./EventModal.module.css";
+import {
+  MapPinIcon,
+  CalendarIcon,
+  UserIcon,
+  AtSymbolIcon,
+} from "@heroicons/react/24/solid";
 
 interface EventModalProps {
   event: Event;
@@ -9,6 +15,54 @@ interface EventModalProps {
 export const EventModal = ({
   event: { image, title, description, location, created, status },
 }: EventModalProps) => {
+  const details = [
+    {
+      id: "location",
+      text: location,
+      icon: MapPinIcon,
+    },
+    {
+      id: "date",
+      text: created.date,
+      icon: CalendarIcon,
+    },
+    {
+      id: "name",
+      text: created.name,
+      icon: UserIcon,
+    },
+    {
+      id: "email",
+      text: created.email,
+      icon: AtSymbolIcon,
+    },
+  ];
+
+  const Header = () => (
+    <header className={styles.eventModalHeader}>
+      <h2 className={styles.eventModalTitle}>{title}</h2>
+      {status && <small className={styles.eventModalStatus}>{status}</small>}
+    </header>
+  );
+
+  const EventDetails = () => (
+    <ul className={styles.eventModalDetails}>
+      {details.map(({ id, text, icon: Icon }) => (
+        <li className={styles.eventModalDetailItem} key={id}>
+          <Icon className={styles.eventModalIcon} />
+          {text}
+        </li>
+      ))}
+    </ul>
+  );
+
+  const Content = () => (
+    <div className={styles.eventModalContent}>
+      <p>{description}</p>
+      <EventDetails />
+    </div>
+  );
+
   return (
     <div className={styles.eventModal}>
       <Image
@@ -21,20 +75,8 @@ export const EventModal = ({
       />
 
       <section className={styles.eventModalBody}>
-        <header className={styles.eventModalHeader}>
-          <h2 className={styles.eventModalTitle}>{title}</h2>
-          {status && (
-            <small className={styles.eventModalStatus}>{status}</small>
-          )}
-        </header>
-
-        <div className={styles.eventModalContent}>
-          <p>{description}</p>
-          <p>{location}</p>
-          <p>{created.date}</p>
-          <p>{created.name}</p>
-          <p>{created.email}</p>
-        </div>
+        <Header />
+        <Content />
       </section>
     </div>
   );
