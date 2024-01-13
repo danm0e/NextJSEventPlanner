@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Event } from "@/models";
 import { EventCard, Modal, EventModal } from "@/components/molecules";
+
 import styles from "./EventsList.module.css";
 
 interface EventsListProps {
@@ -23,12 +24,17 @@ export const EventsList = ({ events }: EventsListProps) => {
     setShowModal(true);
   };
 
-  const shouldShowModal = (currentEvent && showModal) || false;
+  const shouldShowModal = !!(currentEvent && showModal);
 
   return (
     <div className={styles.eventCardGrid}>
-      {events.map((event: Event) => (
-        <EventCard event={event} onClick={handleOnClick} key={event.id} />
+      {events.map((event: Event, idx) => (
+        <EventCard
+          event={event}
+          onClick={handleOnClick}
+          key={event.id}
+          count={idx + 1}
+        />
       ))}
 
       {!!currentEvent && (

@@ -1,0 +1,27 @@
+.createEventFormContainer {
+  @apply py-5 text-center;
+}
+
+.createEventForm {
+  @apply sm:w-2/3 bg-slate-300 dark:bg-slate-700 rounded-lg p-5 mx-auto mt-5 mb-5;
+}
+
+.createEventFormControl {
+  @apply mb-2 sm:mb-0 sm:flex justify-between items-center py-2;
+}
+
+.createEventFormLabel {
+  @apply flex items-center capitalize pb-2;
+}
+
+.createEventFormIcon {
+  @apply h-5 w-5 mr-2 text-slate-400;
+}
+
+.createEventFormInput {
+  @apply rounded-lg w-full sm:w-2/3 h-10 p-3 outline-none;
+}
+
+.createEventFormButton {
+  @apply inline-flex justify-center rounded-lg text-sm font-semibold py-2.5 px-4 bg-slate-900 text-white hover:bg-slate-700;
+}

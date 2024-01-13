@@ -15,6 +15,8 @@ interface EventModalProps {
 export const EventModal = ({
   event: { image, title, description, location, created, status },
 }: EventModalProps) => {
+  const timeStamp = new Date(Number(created.date)).toLocaleDateString();
+
   const details = [
     {
       id: "location",
@@ -23,7 +25,7 @@ export const EventModal = ({
     },
     {
       id: "date",
-      text: created.date,
+      text: timeStamp,
       icon: CalendarIcon,
     },
     {
