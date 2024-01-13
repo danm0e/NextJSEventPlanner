@@ -1,9 +1,36 @@
-import { PageProps } from "@/models";
+import Link from "next/link";
+import { EditEventForm } from "@/components/organisms";
+import { Event, PageProps } from "@/models";
+import { ArrowUturnLeftIcon } from "@heroicons/react/24/solid";
+import styles from "./EditPage.module.css";
 
-const Event = ({ params }: PageProps) => {
-  const { id } = params;
+const getEvent = async (id: string) => {
+  const events = await fetch(`http://localhost:4000/events/${id}`, {
+    next: { revalidate: 0 },
+  });
 
-  return <div>Event - {id}</div>;
+  return events.json();
 };
 
-export default Event;
+const EditEvent = async ({ params }: PageProps) => {
+  const { id } = params;
+  const event: Event = await getEvent(id);
+
+  return (
+    <section className={styles.editEvent}>
+      <header className={styles.editEventPageHeader}>
+        <h2>Edit Event</h2>
+        <Link href="/events">
+          <button className={styles.editEventPageButton}>
+            <ArrowUturnLeftIcon className={styles.editEventPageButtonIcon} />
+            Back
+          </button>
+        </Link>
+      </header>
+
+      <EditEventForm event={event} />
+    </section>
+  );
+};
+
+export default EditEvent;

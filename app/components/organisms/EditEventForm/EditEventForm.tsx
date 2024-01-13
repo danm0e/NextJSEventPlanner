@@ -4,18 +4,22 @@ import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { FormData, Event } from "@/models";
 import { EventForm } from "@/components/molecules";
-import styles from "./CreateEventForm.module.css";
+import styles from "./EditEventForm.module.css";
 
-const initialFormData: FormData = {
-  title: "",
-  description: "",
-  image: "",
-  location: "",
-  name: "",
-  email: "",
-};
+interface EditFormProps {
+  event: Event;
+}
 
-export const CreateEventForm = () => {
+export const EditEventForm = ({ event }: EditFormProps) => {
+  const initialFormData: FormData = {
+    title: event.title,
+    description: event.description,
+    image: event.image,
+    location: event.location,
+    name: event.created.name,
+    email: event.created.email,
+  };
+
   const [formData, setFormData] = useState<FormData>(initialFormData);
   const router = useRouter();
 
@@ -27,37 +31,37 @@ export const CreateEventForm = () => {
   const handleOnSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    const newEvent: Event = {
-      id: crypto.randomUUID(),
+    const editedEvent: Event = {
+      id: event.id,
       title: formData.title,
       description: formData.description,
       image: formData.image,
       location: formData.location,
       created: {
-        date: Date.now().toString(),
+        date: event.created.date,
         name: formData.name,
         email: formData.email,
       },
     };
 
-    const res = await fetch("http://localhost:4000/events", {
-      method: "POST",
+    const res = await fetch(`http://localhost:4000/events/${event.id}`, {
+      method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newEvent),
+      body: JSON.stringify(editedEvent),
     });
 
-    if (res.status === 201) {
+    if (res.status === 200) {
       router.refresh();
       router.push("/events");
     }
   };
 
   return (
-    <div className={styles.createEventFormContainer}>
+    <div className={styles.editEventFormContainer}>
       <EventForm formData={formData} onChange={handleOnChange} />
 
-      <button className={styles.createEventFormButton} onClick={handleOnSubmit}>
-        Add Event
+      <button className={styles.editEventFormButton} onClick={handleOnSubmit}>
+        Edit Event
       </button>
     </div>
   );

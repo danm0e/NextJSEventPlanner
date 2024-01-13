@@ -6,14 +6,16 @@ import {
   CalendarIcon,
   UserIcon,
   AtSymbolIcon,
+  PencilSquareIcon,
 } from "@heroicons/react/24/solid";
+import Link from "next/link";
 
 interface EventModalProps {
   event: Event;
 }
 
 export const EventModal = ({
-  event: { image, title, description, location, created, status },
+  event: { id, image, title, description, location, created, status },
 }: EventModalProps) => {
   const timeStamp = new Date(Number(created.date)).toLocaleDateString();
 
@@ -41,7 +43,7 @@ export const EventModal = ({
   ];
 
   const Header = () => (
-    <header className={styles.eventModalHeader}>
+    <header className={styles.eventModalBodyHeader}>
       <h2 className={styles.eventModalTitle}>{title}</h2>
       {status && <small className={styles.eventModalStatus}>{status}</small>}
     </header>
@@ -67,14 +69,24 @@ export const EventModal = ({
 
   return (
     <div className={styles.eventModal}>
-      <Image
-        src={image}
-        width="600"
-        height="300"
-        alt={title}
-        className={styles.eventModalImage}
-        priority
-      />
+      <div className={styles.eventModalHeader}>
+        <div className={styles.eventModalEdit}>
+          <Link href={`/events/${id}`}>
+            <button className={styles.eventModalEditButton}>
+              <PencilSquareIcon className={styles.eventModalEditIcon} />
+              Edit
+            </button>
+          </Link>
+        </div>
+        <Image
+          src={image}
+          width="600"
+          height="300"
+          alt={title}
+          className={styles.eventModalImage}
+          priority
+        />
+      </div>
 
       <section className={styles.eventModalBody}>
         <Header />

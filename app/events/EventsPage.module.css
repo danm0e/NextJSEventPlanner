@@ -3,7 +3,7 @@
 }
 
 .eventPageHeader {
-  @apply flex justify-between pb-5 border-b-4 border-slate-600;
+  @apply flex justify-between pb-5 border-b-4 border-slate-300 dark:border-slate-600;
 }
 
 .eventPageButton {

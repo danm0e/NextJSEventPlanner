@@ -1,0 +1,23 @@
+.eventFormContainer {
+  @apply py-5 text-center;
+}
+
+.eventForm {
+  @apply sm:w-2/3 bg-slate-300 dark:bg-slate-700 rounded-lg p-5 mx-auto mt-5 mb-5;
+}
+
+.eventFormControl {
+  @apply mb-2 sm:mb-0 sm:flex justify-between items-center py-2;
+}
+
+.eventFormLabel {
+  @apply flex items-center capitalize pb-2;
+}
+
+.eventFormIcon {
+  @apply h-5 w-5 mr-2 text-slate-400;
+}
+
+.eventFormInput {
+  @apply rounded-lg w-full sm:w-2/3 h-10 p-3 outline-none;
+}
