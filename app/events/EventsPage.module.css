@@ -1,5 +1,9 @@
+.eventPage {
+  @apply flex flex-col  w-full;
+}
+
 .eventPageHeader {
-  @apply flex justify-between;
+  @apply flex justify-between pb-5 border-b-4 border-slate-600;
 }
 
 .eventPageButton {

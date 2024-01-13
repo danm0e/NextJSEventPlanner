@@ -20,7 +20,7 @@ const Events = async () => {
   const events: Event[] = await getEvents();
 
   return (
-    <section className="w-full">
+    <section className={styles.eventPage}>
       <header className={styles.eventPageHeader}>
         <h2>Events</h2>
         <Link href="/events/create">

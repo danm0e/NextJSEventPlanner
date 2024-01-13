@@ -3,12 +3,22 @@
 import { useState } from "react";
 import { Event } from "@/models";
 import { EventCard, Modal, EventModal } from "@/components/molecules";
-
+import { MagnifyingGlassCircleIcon } from "@heroicons/react/24/solid";
 import styles from "./EventsList.module.css";
 
 interface EventsListProps {
   events: Event[];
 }
+
+const NoEvents = () => (
+  <div className={styles.noEvents}>
+    <MagnifyingGlassCircleIcon className={styles.noEventsIcon} />
+    <div>
+      <h2>No events just yet!</h2>
+      <p>Add some to see them here!</p>
+    </div>
+  </div>
+);
 
 export const EventsList = ({ events }: EventsListProps) => {
   const [showModal, setShowModal] = useState(false);
@@ -25,6 +35,8 @@ export const EventsList = ({ events }: EventsListProps) => {
   };
 
   const shouldShowModal = !!(currentEvent && showModal);
+
+  if (!events.length) return <NoEvents />;
 
   return (
     <div className={styles.eventCardGrid}>

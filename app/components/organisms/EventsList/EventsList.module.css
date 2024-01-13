@@ -1,3 +1,11 @@
 .eventCardGrid {
   @apply grid gap-4 sm:grid-cols-2 lg:grid-cols-3 py-5;
 }
+
+.noEvents {
+  @apply flex flex-row items-center m-auto p-5 rounded-xl border-dotted border-2 border-sky-300;
+}
+
+.noEventsIcon {
+  @apply h-16 w-16 mr-2 text-sky-300;
+}

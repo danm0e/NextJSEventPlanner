@@ -75,6 +75,18 @@
         "name": "Some user name 6",
         "email": "some-user-6@email.com"
       }
+    },
+    {
+      "id": "14fc82a1-0564-4b46-af33-9466d59d5c39",
+      "title": "Test New Event",
+      "description": "This event is going to be great",
+      "image": "https://source.unsplash.com/random/600x300?sig=7",
+      "location": "London - obvs",
+      "created": {
+        "date": "1705164845250",
+        "name": "Dan",
+        "email": "dan@test.com"
+      }
     }
   ]
 }
