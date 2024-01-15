@@ -1,0 +1,19 @@
+.eventDeleteContainer {
+  @apply flex flex-col w-full p-5 justify-center;
+}
+
+.eventDeleteTitle {
+  @apply text-4xl font-bold;
+}
+
+.eventDeleteButtonGroup {
+  @apply w-3/4 mx-auto flex p-5 mt-10 rounded-lg justify-between border-2 border-sky-300 border-dotted;
+}
+
+.eventDeleteCancel {
+  @apply hover:bg-slate-800;
+}
+
+.eventDeleteConfirm {
+  @apply bg-red-500 hover:bg-red-700;
+}

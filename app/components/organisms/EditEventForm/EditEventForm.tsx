@@ -35,12 +35,24 @@ export const EditEventForm = ({ event }: EditFormProps) => {
     }
   };
 
+  const handleOnDelete = async () => {
+    const res = await fetch(`http://localhost:4000/events/${event.id}`, {
+      method: "DELETE",
+    });
+
+    if (res.status === 200) {
+      router.push("/events");
+      router.refresh();
+    }
+  };
+
   return (
     <EventForm
       formData={formData}
       type="edit"
       onChange={handleOnChange}
       onSubmit={handleOnSubmit}
+      onDelete={handleOnDelete}
     />
   );
 };

@@ -3,5 +3,9 @@
 }
 
 .modalDialog {
-  @apply bg-white dark:bg-slate-700 min-h-full min-w-full max-w-lg sm:min-h-96 sm:min-w-96 sm:rounded-xl animate-scaleUp;
+  @apply flex bg-white dark:bg-slate-700 min-h-full min-w-full max-w-lg sm:min-h-96 sm:min-w-96 sm:rounded-xl animate-scaleUp;
+}
+
+.modalCloseBtn {
+  @apply absolute z-10 left-0 sm:-top-20 h-10 w-10 text-slate-400 cursor-pointer hover:text-white;
 }

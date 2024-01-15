@@ -1,14 +1,16 @@
 import { PropsWithChildren, useEffect } from "react";
+import { XMarkIcon } from "@heroicons/react/24/solid";
 import styles from "./Modal.module.css";
 
 interface ModalProp extends PropsWithChildren {
-  onClose: () => void;
+  hideClose?: boolean;
+  onClose?: () => void;
 }
 
-export const Modal = ({ onClose, children }: ModalProp) => {
+export const Modal = ({ onClose, hideClose, children }: ModalProp) => {
   useEffect(() => {
     const handleEscPress = ({ key }: any) => {
-      if (key === "Escape") {
+      if (onClose && key === "Escape") {
         onClose();
       }
     };
@@ -21,8 +23,13 @@ export const Modal = ({ onClose, children }: ModalProp) => {
   }, []);
 
   return (
-    <div className={styles.modalOverlay} onClick={onClose}>
-      <div className={styles.modalDialog}>{children}</div>
+    <div className={styles.modalOverlay}>
+      <div className={styles.modalDialog}>
+        {!hideClose && (
+          <XMarkIcon className={styles.modalCloseBtn} onClick={onClose} />
+        )}
+        {children}
+      </div>
     </div>
   );
 };

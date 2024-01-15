@@ -1,7 +1,8 @@
-import { ChangeEvent, FormEvent } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { FormData } from "@/models";
 import { Button } from "@/components/atoms";
 import { getFormFields } from "./EventForm.utils";
+import { EventDeleteModal, Modal } from "@/components/molecules";
 import styles from "./EventForm.module.css";
 
 interface EventFormProps {
@@ -9,6 +10,7 @@ interface EventFormProps {
   type: "add" | "edit";
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   onSubmit: (e: FormEvent) => void;
+  onDelete: () => void;
 }
 
 export const EventForm = ({
@@ -16,10 +18,16 @@ export const EventForm = ({
   type,
   onChange,
   onSubmit,
+  onDelete,
 }: EventFormProps) => {
+  const [modalOpen, setModalOpen] = useState(false);
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => onChange(e);
 
   const formFields = getFormFields();
+
+  const handleOnToggle = () => {
+    setModalOpen(!modalOpen);
+  };
 
   return (
     <div className={styles.eventFormContainer}>
@@ -43,6 +51,20 @@ export const EventForm = ({
         ))}
       </form>
       <Button onClick={onSubmit}>{type} Event</Button>
+
+      {type === "edit" && (
+        <div className={styles.eventFormFooter}>
+          <Button onClick={handleOnToggle} className={styles.eventFormButton}>
+            Delete Event
+          </Button>
+        </div>
+      )}
+
+      {modalOpen && (
+        <Modal hideClose>
+          <EventDeleteModal onClose={handleOnToggle} onDelete={onDelete} />
+        </Modal>
+      )}
     </div>
   );
 };

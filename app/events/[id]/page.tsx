@@ -20,6 +20,7 @@ const EditEvent = async ({ params }: PageProps) => {
     <section className={styles.editEvent}>
       <header className={styles.editEventPageHeader}>
         <h2>Edit Event</h2>
+
         <Button href="/events">
           <ArrowUturnLeftIcon className={styles.editEventPageButtonIcon} />
           Back
