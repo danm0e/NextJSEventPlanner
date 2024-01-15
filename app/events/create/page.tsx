@@ -8,6 +8,7 @@ const CreateEvent = ({ params }: PageProps) => (
   <section className={styles.createEvent}>
     <header className={styles.createEventPageHeader}>
       <h2>Create a new event</h2>
+
       <Button href="/events">
         <ArrowUturnLeftIcon className={styles.createEventPageButtonIcon} />
         Back
