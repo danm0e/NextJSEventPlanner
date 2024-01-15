@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Button } from "@/components/atoms";
 import styles from "./Home.module.css";
 
 export const HomePage = () => (
@@ -13,8 +13,6 @@ export const HomePage = () => (
       itaque sapiente inventore quis fuga iste vel consequuntur voluptas.
     </p>
 
-    <Link href="/events">
-      <button className={styles.homeLink}>View Events</button>
-    </Link>
+    <Button href="/events">View Events</Button>
   </section>
 );

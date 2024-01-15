@@ -1,9 +1,9 @@
 import { Event } from "@/models";
 import Image from "next/image";
-import styles from "./EventModal.module.css";
 import { PencilSquareIcon } from "@heroicons/react/24/solid";
-import Link from "next/link";
 import { getEventDetails } from "./Event.modal.utils";
+import { Button } from "@/components/atoms";
+import styles from "./EventModal.module.css";
 
 interface EventModalProps {
   event: Event;
@@ -44,13 +44,12 @@ export const EventModal = ({
     <div className={styles.eventModal}>
       <div className={styles.eventModalHeader}>
         <div className={styles.eventModalEdit}>
-          <Link href={`/events/${id}`}>
-            <button className={styles.eventModalEditButton}>
-              <PencilSquareIcon className={styles.eventModalEditIcon} />
-              Edit
-            </button>
-          </Link>
+          <Button href={`/events/${id}`}>
+            <PencilSquareIcon className={styles.eventModalEditIcon} />
+            Edit
+          </Button>
         </div>
+
         <Image
           src={image}
           width="600"

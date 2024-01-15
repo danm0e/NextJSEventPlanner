@@ -6,10 +6,6 @@
   @apply flex justify-between pb-5 border-b-4 border-slate-300 dark:border-slate-600;
 }
 
-.createEventPageButton {
-  @apply inline-flex justify-center items-center rounded-lg text-sm font-semibold py-2.5 pl-3 pr-4 bg-slate-900 text-white hover:bg-slate-700;
-}
-
 .createEventPageButtonIcon {
   @apply h-6 w-6 mr-2 text-slate-400;
 }

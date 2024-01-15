@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { EditEventForm } from "@/components/organisms";
 import { Event, PageProps } from "@/models";
 import { ArrowUturnLeftIcon } from "@heroicons/react/24/solid";
+import { Button } from "@/components/atoms";
 import styles from "./EditPage.module.css";
 
 const getEvent = async (id: string) => {
@@ -20,12 +20,10 @@ const EditEvent = async ({ params }: PageProps) => {
     <section className={styles.editEvent}>
       <header className={styles.editEventPageHeader}>
         <h2>Edit Event</h2>
-        <Link href="/events">
-          <button className={styles.editEventPageButton}>
-            <ArrowUturnLeftIcon className={styles.editEventPageButtonIcon} />
-            Back
-          </button>
-        </Link>
+        <Button href="/events">
+          <ArrowUturnLeftIcon className={styles.editEventPageButtonIcon} />
+          Back
+        </Button>
       </header>
 
       <EditEventForm event={event} />

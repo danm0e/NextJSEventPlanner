@@ -1,5 +1,6 @@
 import { ChangeEvent, FormEvent } from "react";
 import { FormData } from "@/models";
+import { Button } from "@/components/atoms";
 import {
   RectangleStackIcon,
   ChatBubbleBottomCenterIcon,
@@ -92,9 +93,7 @@ export const EventForm = ({
           </div>
         ))}
       </form>
-      <button className={styles.eventFormButton} onClick={onSubmit}>
-        {type} Event
-      </button>
+      <Button onClick={onSubmit}>{type} Event</Button>
     </div>
   );
 };

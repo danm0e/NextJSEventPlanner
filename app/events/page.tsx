@@ -1,9 +1,9 @@
-import Link from "next/link";
 import { Suspense } from "react";
 import Loading from "@/events/loading";
 import { EventsList } from "@/components/organisms";
 import { Event } from "@/models";
 import { PlusIcon } from "@heroicons/react/24/solid";
+import { Button } from "@/components/atoms";
 import styles from "./EventsPage.module.css";
 
 const getEvents = async () => {
@@ -23,12 +23,10 @@ const Events = async () => {
     <section className={styles.eventPage}>
       <header className={styles.eventPageHeader}>
         <h2>Events</h2>
-        <Link href="/events/create">
-          <button className={styles.eventPageButton}>
-            <PlusIcon className={styles.eventPageButtonIcon} />
-            Add Event
-          </button>
-        </Link>
+        <Button href="/events/create">
+          <PlusIcon className={styles.eventPageButtonIcon} />
+          Add Event
+        </Button>
       </header>
 
       <Suspense fallback={<Loading />}>
