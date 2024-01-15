@@ -1,4 +1,4 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, FormEvent } from "react";
 import { FormData } from "@/models";
 import {
   RectangleStackIcon,
@@ -59,30 +59,42 @@ const formFields: FormFields[] = [
 
 interface EventFormProps {
   formData: FormData;
+  type: "add" | "edit";
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onSubmit: (e: FormEvent) => void;
 }
 
-export const EventForm = ({ formData, onChange }: EventFormProps) => {
+export const EventForm = ({
+  formData,
+  type,
+  onChange,
+  onSubmit,
+}: EventFormProps) => {
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => onChange(e);
 
   return (
-    <form className={styles.eventForm}>
-      {formFields.map(({ id, icon: Icon, placeholder }) => (
-        <div className={styles.eventFormControl} key={id}>
-          <label className={styles.eventFormLabel}>
-            <Icon className={styles.eventFormIcon} />
-            {id}
-          </label>
-          <input
-            type="text"
-            id={id}
-            value={formData?.[id]}
-            onChange={handleOnChange}
-            className={styles.eventFormInput}
-            placeholder={placeholder}
-          />
-        </div>
-      ))}
-    </form>
+    <div className={styles.eventFormContainer}>
+      <form className={styles.eventForm}>
+        {formFields.map(({ id, icon: Icon, placeholder }) => (
+          <div className={styles.eventFormControl} key={id}>
+            <label className={styles.eventFormLabel}>
+              <Icon className={styles.eventFormIcon} />
+              {id}
+            </label>
+            <input
+              type="text"
+              id={id}
+              value={formData?.[id]}
+              onChange={handleOnChange}
+              className={styles.eventFormInput}
+              placeholder={placeholder}
+            />
+          </div>
+        ))}
+      </form>
+      <button className={styles.eventFormButton} onClick={onSubmit}>
+        {type} Event
+      </button>
+    </div>
   );
 };

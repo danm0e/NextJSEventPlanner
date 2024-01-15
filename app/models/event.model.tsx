@@ -5,9 +5,7 @@ export interface Event {
   image: string;
   location: string;
   status?: "Accepted" | "Declined";
-  created: {
-    date: string;
-    name: string;
-    email: string;
-  };
+  date: string;
+  name: string;
+  email: string;
 }

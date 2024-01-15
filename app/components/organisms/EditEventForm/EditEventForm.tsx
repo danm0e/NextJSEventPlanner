@@ -4,23 +4,13 @@ import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { FormData, Event } from "@/models";
 import { EventForm } from "@/components/molecules";
-import styles from "./EditEventForm.module.css";
 
 interface EditFormProps {
   event: Event;
 }
 
 export const EditEventForm = ({ event }: EditFormProps) => {
-  const initialFormData: FormData = {
-    title: event.title,
-    description: event.description,
-    image: event.image,
-    location: event.location,
-    name: event.created.name,
-    email: event.created.email,
-  };
-
-  const [formData, setFormData] = useState<FormData>(initialFormData);
+  const [formData, setFormData] = useState<FormData>(event);
   const router = useRouter();
 
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -31,18 +21,7 @@ export const EditEventForm = ({ event }: EditFormProps) => {
   const handleOnSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    const editedEvent: Event = {
-      id: event.id,
-      title: formData.title,
-      description: formData.description,
-      image: formData.image,
-      location: formData.location,
-      created: {
-        date: event.created.date,
-        name: formData.name,
-        email: formData.email,
-      },
-    };
+    const editedEvent: Event = { ...event, ...formData };
 
     const res = await fetch(`http://localhost:4000/events/${event.id}`, {
       method: "PATCH",
@@ -51,18 +30,17 @@ export const EditEventForm = ({ event }: EditFormProps) => {
     });
 
     if (res.status === 200) {
-      router.refresh();
       router.push("/events");
+      router.refresh();
     }
   };
 
   return (
-    <div className={styles.editEventFormContainer}>
-      <EventForm formData={formData} onChange={handleOnChange} />
-
-      <button className={styles.editEventFormButton} onClick={handleOnSubmit}>
-        Edit Event
-      </button>
-    </div>
+    <EventForm
+      formData={formData}
+      type="edit"
+      onChange={handleOnChange}
+      onSubmit={handleOnSubmit}
+    />
   );
 };

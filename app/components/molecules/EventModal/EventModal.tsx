@@ -1,46 +1,19 @@
 import { Event } from "@/models";
 import Image from "next/image";
 import styles from "./EventModal.module.css";
-import {
-  MapPinIcon,
-  CalendarIcon,
-  UserIcon,
-  AtSymbolIcon,
-  PencilSquareIcon,
-} from "@heroicons/react/24/solid";
+import { PencilSquareIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
+import { getEventDetails } from "./Event.modal.utils";
 
 interface EventModalProps {
   event: Event;
 }
 
 export const EventModal = ({
-  event: { id, image, title, description, location, created, status },
+  event,
+  event: { id, image, title, description, status },
 }: EventModalProps) => {
-  const timeStamp = new Date(Number(created.date)).toLocaleDateString();
-
-  const details = [
-    {
-      id: "location",
-      text: location,
-      icon: MapPinIcon,
-    },
-    {
-      id: "date",
-      text: timeStamp,
-      icon: CalendarIcon,
-    },
-    {
-      id: "name",
-      text: created.name,
-      icon: UserIcon,
-    },
-    {
-      id: "email",
-      text: created.email,
-      icon: AtSymbolIcon,
-    },
-  ];
+  const details = getEventDetails(event);
 
   const Header = () => (
     <header className={styles.eventModalBodyHeader}>

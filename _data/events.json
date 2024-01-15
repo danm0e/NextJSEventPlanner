@@ -6,11 +6,9 @@
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, totam error quas porro nisi iusto tempora, delectus modi veritatis impedit quasi itaque sapiente inventore quis fuga iste vel consequuntur voluptas.",
       "image": "https://source.unsplash.com/random/600x300?sig=1",
       "location": "some event location 1",
-      "created": {
-        "date": "some-date-string-1",
-        "name": "Some user name 1",
-        "email": "some-user-1@email.com"
-      }
+      "date": "some-date-string-1",
+      "name": "Some user name 1",
+      "email": "some-user-1@email.com"
     },
     {
       "id": "2",
@@ -19,11 +17,9 @@
       "image": "https://source.unsplash.com/random/600x300?sig=2",
       "location": "some event location 2",
       "status": "Accepted",
-      "created": {
-        "date": "some-date-string-2",
-        "name": "Some user name 2",
-        "email": "some-user-2@email.com"
-      }
+      "date": "some-date-string-2",
+      "name": "Some user name 2",
+      "email": "some-user-2@email.com"
     },
     {
       "id": "3",
@@ -32,11 +28,9 @@
       "image": "https://source.unsplash.com/random/600x300?sig=3",
       "location": "some event location 3",
       "status": "Declined",
-      "created": {
-        "date": "some-date-string-3",
-        "name": "Some user name 3",
-        "email": "some-user-3@email.com"
-      }
+      "date": "some-date-string-3",
+      "name": "Some user name 3",
+      "email": "some-user-3@email.com"
     },
     {
       "id": "4",
@@ -44,11 +38,9 @@
       "description": "Some description",
       "image": "https://source.unsplash.com/random/600x300?sig=4",
       "location": "some event location 4",
-      "created": {
-        "date": "some-date-string-4",
-        "name": "Some user name 4",
-        "email": "some-user-4@email.com"
-      }
+      "date": "some-date-string-4",
+      "name": "Some user name 4",
+      "email": "some-user-4@email.com"
     },
     {
       "id": "5",
@@ -57,11 +49,9 @@
       "image": "https://source.unsplash.com/random/600x300?sig=5",
       "location": "some event location 5",
       "status": "Accepted",
-      "created": {
-        "date": "some-date-string-5",
-        "name": "Some user name 5",
-        "email": "some-user-5@email.com"
-      }
+      "date": "some-date-string-5",
+      "name": "Some user name 5",
+      "email": "some-user-5@email.com"
     },
     {
       "id": "6",
@@ -70,11 +60,9 @@
       "image": "https://source.unsplash.com/random/600x300?sig=6",
       "location": "some event location 6",
       "status": "Declined",
-      "created": {
-        "date": "some-date-string-6",
-        "name": "Some user name 6",
-        "email": "some-user-6@email.com"
-      }
+      "date": "some-date-string-6",
+      "name": "Some user name 6",
+      "email": "some-user-6@email.com"
     },
     {
       "id": "14fc82a1-0564-4b46-af33-9466d59d5c39",
@@ -82,11 +70,29 @@
       "description": "This event is going to be great",
       "image": "https://source.unsplash.com/random/600x300?sig=7",
       "location": "London - obvs",
-      "created": {
-        "date": "1705164845250",
-        "name": "Dan",
-        "email": "dan@test.com"
-      }
+      "date": "1705164845250",
+      "name": "Dan",
+      "email": "dan@test.com"
+    },
+    {
+      "id": "6959aa28-d342-4590-8a98-1a81476e726c",
+      "title": "New test event - 2",
+      "description": "More info here, it's going to be great!",
+      "image": "https://source.unsplash.com/random/600x300?sig=8",
+      "location": "Barcelona",
+      "name": "Dan Moe",
+      "email": "danmoe@company-email.com",
+      "date": "1705314587372"
+    },
+    {
+      "id": "7260c46a-6597-4255-833f-ab65c1d4c13e",
+      "title": "Test 3",
+      "description": "Yep",
+      "image": "https://source.unsplash.com/random/600x300?sig=9",
+      "location": "Here",
+      "name": "There",
+      "email": "here@there.com",
+      "date": "1705316402769"
     }
   ]
 }

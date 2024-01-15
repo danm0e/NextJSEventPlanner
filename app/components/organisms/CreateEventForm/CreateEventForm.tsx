@@ -4,7 +4,6 @@ import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { FormData, Event } from "@/models";
 import { EventForm } from "@/components/molecules";
-import styles from "./CreateEventForm.module.css";
 
 const initialFormData: FormData = {
   title: "",
@@ -28,16 +27,9 @@ export const CreateEventForm = () => {
     e.preventDefault();
 
     const newEvent: Event = {
+      ...formData,
       id: crypto.randomUUID(),
-      title: formData.title,
-      description: formData.description,
-      image: formData.image,
-      location: formData.location,
-      created: {
-        date: Date.now().toString(),
-        name: formData.name,
-        email: formData.email,
-      },
+      date: Date.now().toString(),
     };
 
     const res = await fetch("http://localhost:4000/events", {
@@ -47,18 +39,17 @@ export const CreateEventForm = () => {
     });
 
     if (res.status === 201) {
-      router.refresh();
       router.push("/events");
+      router.refresh();
     }
   };
 
   return (
-    <div className={styles.createEventFormContainer}>
-      <EventForm formData={formData} onChange={handleOnChange} />
-
-      <button className={styles.createEventFormButton} onClick={handleOnSubmit}>
-        Add Event
-      </button>
-    </div>
+    <EventForm
+      formData={formData}
+      onChange={handleOnChange}
+      onSubmit={handleOnSubmit}
+      type="add"
+    />
   );
 };

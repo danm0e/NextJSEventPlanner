@@ -21,3 +21,7 @@
 .eventFormInput {
   @apply rounded-lg w-full sm:w-2/3 h-10 p-3 outline-none;
 }
+
+.eventFormButton {
+  @apply inline-flex justify-center rounded-lg text-sm font-semibold py-2.5 px-4 bg-slate-900 text-white hover:bg-slate-700 capitalize;
+}
