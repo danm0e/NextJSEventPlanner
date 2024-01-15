@@ -2,11 +2,10 @@ import { PropsWithChildren, useEffect } from "react";
 import styles from "./Modal.module.css";
 
 interface ModalProp extends PropsWithChildren {
-  isVisible: boolean;
   onClose: () => void;
 }
 
-export const Modal = ({ isVisible, onClose, children }: ModalProp) => {
+export const Modal = ({ onClose, children }: ModalProp) => {
   useEffect(() => {
     const handleEscPress = ({ key }: any) => {
       if (key === "Escape") {

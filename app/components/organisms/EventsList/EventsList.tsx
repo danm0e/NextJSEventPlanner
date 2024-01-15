@@ -22,7 +22,7 @@ const NoEvents = () => (
 
 export const EventsList = ({ events }: EventsListProps) => {
   const [showModal, setShowModal] = useState(false);
-  const [currentEvent, setCurrentEvent] = useState<Event | undefined>();
+  const [currentEvent, setCurrentEvent] = useState<Event>();
 
   const handleOnClose = () => {
     setShowModal(false);
@@ -34,7 +34,7 @@ export const EventsList = ({ events }: EventsListProps) => {
     setShowModal(true);
   };
 
-  const shouldShowModal = !!(currentEvent && showModal);
+  const shouldShowModal = !!currentEvent && showModal;
 
   if (!events.length) return <NoEvents />;
 
@@ -49,8 +49,8 @@ export const EventsList = ({ events }: EventsListProps) => {
         />
       ))}
 
-      {!!currentEvent && (
-        <Modal isVisible={shouldShowModal} onClose={handleOnClose}>
+      {shouldShowModal && (
+        <Modal onClose={handleOnClose}>
           <EventModal event={currentEvent} />
         </Modal>
       )}
